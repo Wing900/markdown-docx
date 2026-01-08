@@ -1,0 +1,279 @@
+/**
+ * 极简主义 - 中国风淡灰色配色
+ * 浅色系、水墨风格、克制优雅
+ */
+
+:root {
+  /* ========== 中国风色彩系统 ========== */
+  
+  /* Primary - 水墨青（主色调） */
+  --md-sys-color-primary: #5B7C8D;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #E8EEF1;
+  --md-sys-color-on-primary-container: #3A5260;
+  
+  /* Secondary - 竹青（辅助色） */
+  --md-sys-color-secondary: #6B8E7F;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #E9F2ED;
+  --md-sys-color-on-secondary-container: #4A6B5C;
+  
+  /* Tertiary - 藕荷（第三色） */
+  --md-sys-color-tertiary: #9B8B8E;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #F3EFEF;
+  --md-sys-color-on-tertiary-container: #6D6164;
+  
+  /* Error - 朱砂（错误色） */
+  --md-sys-color-error: #C85A54;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #F9E8E7;
+  --md-sys-color-on-error-container: #8B3E3A;
+  
+  /* Surface - 宣纸白（表面色） */
+  --md-sys-color-surface: #FAFAF9;
+  --md-sys-color-on-surface: #3C3C3C;
+  --md-sys-color-surface-variant: #F0F0EE;
+  --md-sys-color-on-surface-variant: #6B6B6B;
+  
+  /* Background - 素白（背景色） */
+  --md-sys-color-background: #F8F8F7;
+  --md-sys-color-on-background: #3C3C3C;
+  
+  /* Outline - 淡墨（轮廓色） */
+  --md-sys-color-outline: #C8C8C6;
+  --md-sys-color-outline-variant: #E5E5E3;
+  
+  /* Success - 松绿（成功色） */
+  --md-sys-color-success: #6B9080;
+  --md-sys-color-on-success: #FFFFFF;
+  --md-sys-color-success-container: #E9F2ED;
+  
+  /* ========== 极简灰度系统 ========== */
+  
+  /* 中国风灰度 - 从宣纸白到水墨黑 */
+  --md-neutral-0: #FFFFFF;
+  --md-neutral-10: #FAFAF9;
+  --md-neutral-50: #F5F5F4;
+  --md-neutral-100: #EFEFED;
+  --md-neutral-200: #E5E5E3;
+  --md-neutral-300: #D4D4D2;
+  --md-neutral-400: #A8A8A6;
+  --md-neutral-500: #8B8B89;
+  --md-neutral-600: #6B6B69;
+  --md-neutral-700: #4A4A48;
+  --md-neutral-800: #3C3C3A;
+  --md-neutral-900: #2A2A28;
+  
+  /* ========== 排版系统 ========== */
+  
+  /* Display - 超大标题 */
+  --md-sys-typescale-display-large-size: 57px;
+  --md-sys-typescale-display-large-weight: 300;
+  --md-sys-typescale-display-large-line-height: 64px;
+  
+  --md-sys-typescale-display-medium-size: 45px;
+  --md-sys-typescale-display-medium-weight: 300;
+  --md-sys-typescale-display-medium-line-height: 52px;
+  
+  --md-sys-typescale-display-small-size: 36px;
+  --md-sys-typescale-display-small-weight: 300;
+  --md-sys-typescale-display-small-line-height: 44px;
+  
+  /* Headline - 标题 */
+  --md-sys-typescale-headline-large-size: 32px;
+  --md-sys-typescale-headline-large-weight: 400;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  
+  --md-sys-typescale-headline-medium-size: 28px;
+  --md-sys-typescale-headline-medium-weight: 400;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  
+  --md-sys-typescale-headline-small-size: 24px;
+  --md-sys-typescale-headline-small-weight: 400;
+  --md-sys-typescale-headline-small-line-height: 32px;
+  
+  /* Title - 小标题 */
+  --md-sys-typescale-title-large-size: 22px;
+  --md-sys-typescale-title-large-weight: 400;
+  --md-sys-typescale-title-large-line-height: 28px;
+  
+  --md-sys-typescale-title-medium-size: 16px;
+  --md-sys-typescale-title-medium-weight: 500;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  
+  --md-sys-typescale-title-small-size: 14px;
+  --md-sys-typescale-title-small-weight: 500;
+  --md-sys-typescale-title-small-line-height: 20px;
+  
+  /* Body - 正文 */
+  --md-sys-typescale-body-large-size: 16px;
+  --md-sys-typescale-body-large-weight: 400;
+  --md-sys-typescale-body-large-line-height: 24px;
+  
+  --md-sys-typescale-body-medium-size: 14px;
+  --md-sys-typescale-body-medium-weight: 400;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  
+  --md-sys-typescale-body-small-size: 12px;
+  --md-sys-typescale-body-small-weight: 400;
+  --md-sys-typescale-body-small-line-height: 16px;
+  
+  /* Label - 标签 */
+  --md-sys-typescale-label-large-size: 14px;
+  --md-sys-typescale-label-large-weight: 500;
+  --md-sys-typescale-label-large-line-height: 20px;
+  
+  --md-sys-typescale-label-medium-size: 12px;
+  --md-sys-typescale-label-medium-weight: 500;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  
+  --md-sys-typescale-label-small-size: 11px;
+  --md-sys-typescale-label-small-weight: 500;
+  --md-sys-typescale-label-small-line-height: 16px;
+  
+  /* ========== 形状系统 ========== */
+  
+  /* 圆角 - 极简风格（更小的圆角） */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 2px;
+  --md-sys-shape-corner-small: 4px;
+  --md-sys-shape-corner-medium: 8px;
+  --md-sys-shape-corner-large: 12px;
+  --md-sys-shape-corner-extra-large: 16px;
+  --md-sys-shape-corner-full: 9999px;
+  
+  /* ========== 阴影系统 ========== */
+  
+  /* Elevation - 极轻微阴影（水墨晕染效果） */
+  --md-sys-elevation-0: none;
+  --md-sys-elevation-1: 0 1px 2px 0 rgba(60, 60, 58, 0.04);
+  --md-sys-elevation-2: 0 1px 3px 0 rgba(60, 60, 58, 0.06), 0 1px 2px -1px rgba(60, 60, 58, 0.04);
+  --md-sys-elevation-3: 0 2px 4px -1px rgba(60, 60, 58, 0.08), 0 2px 3px -2px rgba(60, 60, 58, 0.06);
+  --md-sys-elevation-4: 0 4px 6px -2px rgba(60, 60, 58, 0.08), 0 3px 4px -3px rgba(60, 60, 58, 0.06);
+  --md-sys-elevation-5: 0 8px 10px -4px rgba(60, 60, 58, 0.08), 0 4px 6px -4px rgba(60, 60, 58, 0.06);
+  
+  /* ========== 间距系统 ========== */
+  
+  --md-sys-spacing-0: 0px;
+  --md-sys-spacing-1: 4px;
+  --md-sys-spacing-2: 8px;
+  --md-sys-spacing-3: 12px;
+  --md-sys-spacing-4: 16px;
+  --md-sys-spacing-5: 20px;
+  --md-sys-spacing-6: 24px;
+  --md-sys-spacing-7: 28px;
+  --md-sys-spacing-8: 32px;
+  --md-sys-spacing-10: 40px;
+  --md-sys-spacing-12: 48px;
+  --md-sys-spacing-16: 64px;
+  --md-sys-spacing-20: 80px;
+  
+  /* ========== 动画系统 ========== */
+  
+  /* Duration - 持续时间（更慢更优雅） */
+  --md-sys-motion-duration-short1: 50ms;
+  --md-sys-motion-duration-short2: 100ms;
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-short4: 200ms;
+  --md-sys-motion-duration-medium1: 250ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-medium3: 350ms;
+  --md-sys-motion-duration-medium4: 400ms;
+  --md-sys-motion-duration-long1: 450ms;
+  --md-sys-motion-duration-long2: 500ms;
+  --md-sys-motion-duration-long3: 550ms;
+  --md-sys-motion-duration-long4: 600ms;
+  
+  /* Easing - 缓动函数（更柔和） */
+  --md-sys-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-legacy: cubic-bezier(0.4, 0, 0.2, 1);
+  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1);
+  
+  /* ========== 组件特定令牌 ========== */
+  
+  /* Button */
+  --md-comp-button-height: 40px;
+  --md-comp-button-padding-x: 24px;
+  --md-comp-button-border-radius: var(--md-sys-shape-corner-small);
+  
+  /* Icon Button */
+  --md-comp-icon-button-size: 40px;
+  --md-comp-icon-button-icon-size: 24px;
+  
+  /* Card */
+  --md-comp-card-border-radius: var(--md-sys-shape-corner-medium);
+  --md-comp-card-elevation: var(--md-sys-elevation-1);
+  
+  /* Input */
+  --md-comp-input-height: 48px;
+  --md-comp-input-border-radius: var(--md-sys-shape-corner-small);
+  
+  /* App Bar */
+  --md-comp-app-bar-height: 64px;
+  --md-comp-app-bar-elevation: var(--md-sys-elevation-0);
+  
+  /* FAB */
+  --md-comp-fab-size: 56px;
+  --md-comp-fab-icon-size: 24px;
+  --md-comp-fab-border-radius: var(--md-sys-shape-corner-large);
+  
+  /* ========== 字体家族 ========== */
+  
+  --md-sys-typescale-font-family: "LXGW WenKai", "霞鹜文楷", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Source Han Sans SC",
+    "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --md-sys-typescale-font-family-mono: "LXGW WenKai Mono", "霞鹜文楷等宽",
+    "SF Mono", "Consolas", "Liberation Mono", "Menlo", "Courier New", monospace;
+}
+
+/* ========== 暗色主题（保持淡雅） ========== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Primary - 月白 */
+    --md-sys-color-primary: #8FA9B8;
+    --md-sys-color-on-primary: #2A3A45;
+    --md-sys-color-primary-container: #3A4F5E;
+    --md-sys-color-on-primary-container: #D8E4EA;
+    
+    /* Secondary - 青竹 */
+    --md-sys-color-secondary: #8FA99A;
+    --md-sys-color-on-secondary: #2A3F35;
+    --md-sys-color-secondary-container: #3F5A4C;
+    --md-sys-color-on-secondary-container: #D8E8DF;
+    
+    /* Tertiary - 藕灰 */
+    --md-sys-color-tertiary: #AFA5A8;
+    --md-sys-color-on-tertiary: #3F3638;
+    --md-sys-color-tertiary-container: #574D50;
+    --md-sys-color-on-tertiary-container: #E8E3E4;
+    
+    /* Error - 胭脂 */
+    --md-sys-color-error: #D88A85;
+    --md-sys-color-on-error: #4A2E2C;
+    --md-sys-color-error-container: #6B4340;
+    --md-sys-color-on-error-container: #F5E3E2;
+    
+    /* Surface - 墨色 */
+    --md-sys-color-surface: #1C1C1A;
+    --md-sys-color-on-surface: #E5E5E3;
+    --md-sys-color-surface-variant: #2A2A28;
+    --md-sys-color-on-surface-variant: #C8C8C6;
+    
+    /* Background - 深墨 */
+    --md-sys-color-background: #1A1A18;
+    --md-sys-color-on-background: #E5E5E3;
+    
+    /* Outline - 淡墨 */
+    --md-sys-color-outline: #4A4A48;
+    --md-sys-color-outline-variant: #3C3C3A;
+    
+    /* Success - 松石 */
+    --md-sys-color-success: #8FA99A;
+    --md-sys-color-on-success: #2A3F35;
+    --md-sys-color-success-container: #3F5A4C;
+  }
+}

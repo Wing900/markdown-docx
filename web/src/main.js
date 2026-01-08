@@ -3,6 +3,7 @@ import { initTemplates } from './templates'
 import { initMarkdown } from './markdown'
 import { initTools } from './tools'
 import { initLanguage } from './lang.js'
+import './theme-manager.js'
 
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,11 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Create the main app
 function createApp(container) {
+  // 初始化语言为中文
+  initLanguage()
+  
   const service = {
     markdown: null,
     templates: null,
-    tools: null,
-    lang: initLanguage()
+    tools: null
   }
 
   // Initialize the editor and preview

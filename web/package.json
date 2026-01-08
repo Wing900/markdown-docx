@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "katex": "^0.16.11",
     "markdown-docx": "^1.5.1"
   }
 }

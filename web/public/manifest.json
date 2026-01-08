@@ -1,0 +1,16 @@
+{
+  "name": "Markdown 转 DOCX 转换器",
+  "short_name": "MarkdownDocx",
+  "description": "Convert Markdown files to DOCX format easily. | 在线转换 Markdown 文件为 DOCX 格式",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6750a4",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

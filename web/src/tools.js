@@ -17,9 +17,9 @@ export function initTools(service) {
 
   // Download button - now opens the settings modal first
   downloadButton.addEventListener('click', () => {
-    // Show the download settings modal
+    // Show the download settings modal (using dialog element)
     if (downloadSettingModal) {
-      downloadSettingModal.classList.remove('hidden')
+      downloadSettingModal.showModal()
     }
   })
 
@@ -27,7 +27,16 @@ export function initTools(service) {
   if (cancelExportButton) {
     cancelExportButton.addEventListener('click', () => {
       if (downloadSettingModal) {
-        downloadSettingModal.classList.add('hidden')
+        downloadSettingModal.close()
+      }
+    })
+  }
+  
+  // Close modal when clicking on backdrop
+  if (downloadSettingModal) {
+    downloadSettingModal.addEventListener('click', (e) => {
+      if (e.target === downloadSettingModal) {
+        downloadSettingModal.close()
       }
     })
   }
@@ -39,6 +48,8 @@ export function initTools(service) {
       const getValueOf = (id) => document.getElementById(id)?.value || undefined
       const getChecked = (id) => document.getElementById(id)?.checked || false
 
+      // 预处理：将括号公式语法转换为美元语法，确保导出兼容性
+      const processedMarkdown = preprocessMathFormula(markdownContent)
 
       const selectedTheme = ThemeManager.themeConfigs[getValueOf('doc-theme') || 'default']
 
@@ -55,7 +66,7 @@ export function initTools(service) {
         theme: selectedTheme?.theme,
       }
       // Use options for export
-      const buffer = await markdownDocx(markdownContent, options)
+      const buffer = await markdownDocx(processedMarkdown, options)
       const blob = await Packer.toBlob(buffer);
     
       const url = URL.createObjectURL(blob)
@@ -70,7 +81,7 @@ export function initTools(service) {
       
       // Hide the modal after export
       if (downloadSettingModal) {
-        downloadSettingModal.classList.add('hidden')
+        downloadSettingModal.close()
       }
     })
   }
@@ -101,4 +112,49 @@ function formatFilename (name) {
   const dateString = `${month}${day}${hours}${minutes}${seconds}`
   const filename = `${name || 'markdown-docx'}-${dateString}.docx`
   return filename
+}
+
+/**
+ * 预处理数学公式语法：将 \(...\) 和 \[...\] 转换为 $...$ 和 $$...$$
+ * 确保导出到 DOCX 时公式兼容性
+ */
+function preprocessMathFormula(content) {
+  // 将 \(公式\) 转换为 $公式$
+  let processed = content.replace(/\\\(([\s\S]*?)\\\)/g, (match, formula) => {
+    return `$${formula}$`
+  })
+
+  // 将 \[公式\] 转换为 $$公式$$
+  processed = processed.replace(/\\\[[\s\S]*?\\\]/g, (match) => {
+    const inner = match.slice(2, -2)
+    return `$$${inner}$$`
+  })
+
+  // 处理公式附近的顿号（中文顿号会干扰 markdown-docx 解析器）
+  processed = fixFormulaPunctuation(processed)
+
+  return processed
+}
+
+/**
+ * 处理公式标点符号：把公式外部的中文标点换成英文
+ * 避免 $...$、$...$ 之间的中文标点干扰 markdown-docx 解析器
+ */
+function fixFormulaPunctuation(content) {
+  // 把 $公式$ 后面的中文标点换成英文标点，并在 $ 符号前后加空格
+  // 处理中文逗号、顿号
+  content = content.replace(/\$([^\$]+?)\$([，。、])/g, '$ $1$ $2')
+  content = content.replace(/([，。、])\$([^\$]+?)\$/g, '$1 $ $2 $')
+  // 处理中文句号
+  content = content.replace(/\$([^\$]+?)\$。/g, '$ $1$.')
+  // 处理中文分号
+  content = content.replace(/\$([^\$]+?)\$；/g, '$ $1$;')
+  // 处理中文冒号
+  content = content.replace(/\$([^\$]+?)\$：/g, '$ $1$:')
+  // 处理中文括号
+  content = content.replace(/\$([^\$]+?)\$）（/g, '$ $1$) (')
+  // 处理中文方括号
+  content = content.replace(/\$([^\$]+?)\$】\]/g, '$ $1$] ')
+
+  return content
 }

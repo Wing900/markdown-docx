@@ -1,0 +1,404 @@
+/**
+ * MD3 混合极简 - 交互动效增强
+ * 提供流畅的微交互和视觉反馈
+ */
+
+/* ========== 涟漪效果（Ripple Effect） ========== */
+
+.md3-button,
+.md3-icon-button,
+.md3-menu-item,
+.md3-fab {
+  position: relative;
+  overflow: hidden;
+}
+
+.md3-button::before,
+.md3-icon-button::before,
+.md3-menu-item::before,
+.md3-fab::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: width var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+              height var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized),
+              opacity var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+.md3-button:active::before,
+.md3-icon-button:active::before,
+.md3-menu-item:active::before,
+.md3-fab:active::before {
+  width: 200%;
+  height: 200%;
+  opacity: 0.12;
+}
+
+/* ========== 焦点状态增强 ========== */
+
+.md3-button:focus-visible,
+.md3-icon-button:focus-visible,
+.md3-text-field:focus-visible,
+.md3-select:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+/* ========== 悬停状态层 ========== */
+
+.md3-card {
+  transition: box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+              transform var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+.md3-card:hover {
+  box-shadow: var(--md-sys-elevation-2);
+}
+
+/* ========== 加载动画 ========== */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.md3-loading {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-surface-variant) 0%,
+    var(--md-sys-color-surface) 50%,
+    var(--md-sys-color-surface-variant) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* ========== 滚动条美化 ========== */
+
+.md3-card__content::-webkit-scrollbar,
+.md3-textarea::-webkit-scrollbar,
+.md3-dialog__content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.md3-card__content::-webkit-scrollbar-track,
+.md3-textarea::-webkit-scrollbar-track,
+.md3-dialog__content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.md3-card__content::-webkit-scrollbar-thumb,
+.md3-textarea::-webkit-scrollbar-thumb,
+.md3-dialog__content::-webkit-scrollbar-thumb {
+  background-color: var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-full);
+  transition: background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.md3-card__content::-webkit-scrollbar-thumb:hover,
+.md3-textarea::-webkit-scrollbar-thumb:hover,
+.md3-dialog__content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--md-sys-color-outline);
+}
+
+/* Firefox */
+.md3-card__content,
+.md3-textarea,
+.md3-dialog__content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--md-sys-color-outline-variant) transparent;
+}
+
+/* ========== 状态指示器 ========== */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.md3-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========== 淡入动画 ========== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.md3-fade-in {
+  animation: fadeIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-standard);
+}
+
+/* ========== 滑入动画 ========== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.md3-slide-in-up {
+  animation: slideInUp var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized);
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.md3-slide-in-down {
+  animation: slideInDown var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized);
+}
+
+/* ========== 缩放动画 ========== */
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.md3-scale-in {
+  animation: scaleIn var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+}
+
+/* ========== 旋转加载动画 ========== */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.md3-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ========== 按钮按下效果 ========== */
+
+.md3-button:active,
+.md3-fab:active {
+  transform: scale(0.98);
+}
+
+.md3-icon-button:active {
+  transform: scale(0.95);
+}
+
+/* ========== 输入框动画 ========== */
+
+.md3-text-field,
+.md3-select {
+  transition: border-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+              box-shadow var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard),
+              background-color var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+/* ========== Checkbox 动画 ========== */
+
+.md3-checkbox {
+  transition: all var(--md-sys-motion-duration-short3) var(--md-sys-motion-easing-emphasized);
+}
+
+.md3-checkbox:checked {
+  animation: checkboxCheck var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized);
+}
+
+@keyframes checkboxCheck {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========== 页面加载动画 ========== */
+
+.md3-app {
+  animation: fadeIn var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard);
+}
+
+/* ========== 悬停提升效果 ========== */
+
+.md3-fab:hover {
+  animation: fabHover var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized) forwards;
+}
+
+@keyframes fabHover {
+  to {
+    transform: scale(1.05) translateY(-2px);
+  }
+}
+
+/* ========== 主题切换过渡 ========== */
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--md-sys-motion-duration-medium2);
+  transition-timing-function: var(--md-sys-motion-easing-standard);
+}
+
+/* 排除不需要过渡的元素 */
+.md3-button::before,
+.md3-icon-button::before,
+.md3-menu-item::before,
+.md3-fab::before,
+.md3-textarea,
+input,
+select {
+  transition-property: none;
+}
+
+/* 重新应用特定元素的过渡 */
+.md3-button,
+.md3-icon-button,
+.md3-menu-item,
+.md3-fab,
+.md3-text-field,
+.md3-select,
+.md3-card {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+}
+
+/* ========== 减少动画（尊重用户偏好） ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== 触摸设备优化 ========== */
+
+@media (hover: none) and (pointer: coarse) {
+  .md3-button:hover,
+  .md3-icon-button:hover,
+  .md3-menu-item:hover {
+    background-color: transparent;
+  }
+  
+  .md3-button:active,
+  .md3-icon-button:active,
+  .md3-menu-item:active {
+    background-color: rgba(103, 80, 164, 0.12);
+  }
+}
+
+/* ========== 骨架屏加载效果 ========== */
+
+.md3-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-surface-variant) 25%,
+    var(--md-sys-color-surface) 50%,
+    var(--md-sys-color-surface-variant) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ========== 通知/提示动画 ========== */
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.md3-notification {
+  animation: slideInRight var(--md-sys-motion-duration-medium3) var(--md-sys-motion-easing-emphasized);
+}
+
+/* ========== 进度条动画 ========== */
+
+@keyframes progress {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.md3-progress-bar {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--md-sys-color-surface-variant);
+  height: 4px;
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.md3-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--md-sys-color-primary);
+  animation: progress 1.5s ease-in-out infinite;
+}
