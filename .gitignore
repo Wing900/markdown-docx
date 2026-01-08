@@ -52,6 +52,11 @@ docs/.nojekyll
 
 # Lock files
 yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# AI Assistant
+.claude/
 
 # Documents
 My Document.docx
